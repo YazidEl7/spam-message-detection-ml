@@ -61,7 +61,7 @@ Naïve Bayes   Logistic Regression   Linear SVM
                     │
                     ▼
              Streamlit Application
-
+```
 ## Dataset
 
 The project uses the SMS Spam Collection Dataset.
@@ -130,6 +130,7 @@ Interface
 Prediction Example
 
 ## Project Structure:
+```
 spam-message-detection-ml/
 │
 ├── data/              # Dataset instructions
@@ -139,44 +140,43 @@ spam-message-detection-ml/
 ├── results/           # Evaluation results and figures
 ├── screenshots/       # Application screenshots
 └── docs/              # Project report and presentation
-
+```
 ## Installation:
-
 Clone the repository:
-
+```
 git clone https://github.com/YAZIDEL7/spam-message-detection-ml.git
 cd spam-message-detection-ml
-
+```
 Create a virtual environment:
-
+```
 python -m venv venv
-
+```
 Activate it on Windows:
-
+```
 venv\Scripts\activate
-
+```
 Install the required packages:
-
+```
 pip install -r requirements.txt
-
+```
 ## Training:
 
 After preparing the dataset, run:
-
+```
 python src/train.py
-
+```
 ## Evaluation:
 
 To evaluate the trained models:
-
+```
 python src/evaluate.py
-
+```
 ## Running the Application:
 
 Start the Streamlit application:
-
+```
 streamlit run app/app.py
-
+```
 ## Limitations:
 
 This project focuses on text-based message classification.

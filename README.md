@@ -77,11 +77,11 @@ The dataset is not included in this repository. See data/README.md for informati
 
 The text preprocessing pipeline includes:
 
-Converting text to lowercase
-Removing URLs
-Removing numbers and punctuation
-Removing stopwords
-Applying stemming
+- Converting text to lowercase
+- Removing URLs
+- Removing numbers and punctuation
+- Removing stopwords
+- Applying stemming
 
 The goal is to reduce unnecessary variation in the text before feature extraction.
 
@@ -97,9 +97,9 @@ The vocabulary is limited to 3,000 features in the experimental configuration.
 
 Three machine learning models were evaluated:
 
-Multinomial Naïve Bayes
-Logistic Regression
-Linear Support Vector Machine (SVM)
+- Multinomial Naïve Bayes
+- Logistic Regression
+- Linear Support Vector Machine (SVM)
 
 The models were trained using the same TF-IDF representation and evaluated using the same test set.
 
@@ -107,11 +107,11 @@ The models were trained using the same TF-IDF representation and evaluated using
 
 The models were evaluated using:
 
-Accuracy
-Precision
-Recall
-F1-score
-Confusion matrix
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion matrix
 
 The final model was selected based on the experimental results.
 
@@ -123,8 +123,9 @@ The final model is integrated into a Streamlit interface where a user can enter 
 
 Possible output classes are:
 
-Spam
-Legitimate
+- Spam
+- Legitimate
+
 Interface
 
 Prediction Example
@@ -183,13 +184,13 @@ This project focuses on text-based message classification.
 
 It does not currently analyze:
 
-Email headers
-Sender reputation
-Attachments
-URL reputation
-SPF/DKIM information
-Domain reputation
-Other email metadata
+- Email headers
+- Sender reputation
+- Attachments
+- URL reputation
+- SPF/DKIM information
+- Domain reputation
+- Other email metadata
 
 The experimental results are based on SMS messages and should therefore not be interpreted as a complete evaluation of an email filtering system.
 
@@ -197,22 +198,22 @@ The experimental results are based on SMS messages and should therefore not be i
 
 Possible improvements include:
 
-Testing the system on a real email spam dataset
-Adding URL analysis
-Using email header information
-Adding sender and domain reputation features
-Detecting image-based spam
-Testing word embeddings or transformer-based models
-Integrating the classifier with an email gateway
+- Testing the system on a real email spam dataset
+- Adding URL analysis
+- Using email header information
+- Adding sender and domain reputation features
+- Detecting image-based spam
+- Testing word embeddings or transformer-based models
+- Integrating the classifier with an email gateway
 
 ## Technologies:
-Python
-Pandas
-NumPy
-Scikit-learn
-NLTK
-Matplotlib
-Streamlit
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- NLTK
+- Matplotlib
+- Streamlit
 
 Author:
 YazidEL7

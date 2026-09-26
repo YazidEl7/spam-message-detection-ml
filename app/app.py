@@ -1,50 +1,29 @@
 import os
-import sys
-import joblib
+import pickle
 import streamlit as st
 
-# Add src folder to module import path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
+# Define relative paths to model files
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "svm_model.pkl")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "models", "tfidf_vectorizer.pkl")
 
-from preprocessing import clean_text
+# Load model and vectorizer
+model = pickle.load(open(MODEL_PATH, "rb"))
+vectorizer = pickle.load(open(VECTORIZER_PATH, "rb"))
 
-st.set_page_config(page_title="Spam Message Detection", page_icon="✉️")
+# Streamlit App Interface
+st.title("Spam Email Detection System")
 
-st.title("✉️ Spam Message Detection App")
-st.write("Enter a SMS or email message below to classify it as Spam or Legitimate.")
+message = st.text_area("Enter Email Content")
 
-# Load resources
-@st.cache_resource
-def load_assets():
-    vec_path = os.path.join("models", "tfidf_vectorizer.pkl")
-    model_path = os.path.join("models", "multinomial_nb.pkl")
-    
-    vectorizer = joblib.load(vec_path)
-    model = joblib.load(model_path)
-    return vectorizer, model
+if st.button("Predict"):
+  if message.strip():
+    vector = vectorizer.transform([message])
+    prediction = model.predict(vector)
 
-try:
-    vectorizer, model = load_assets()
-
-    message = st.text_area("Enter a message:", height=120)
-
-    if st.button("Predict"):
-        if message.strip() == "":
-            st.warning("Please enter a valid text message.")
-        else:
-            # Preprocess
-            cleaned = clean_text(message)
-            
-            # Vectorize
-            transformed = vectorizer.transform([cleaned])
-            
-            # Predict
-            prediction = model.predict(transformed)[0]
-
-            if prediction == 1:
-                st.error("🚨 **Spam Message Detected!**")
-            else:
-                st.success("✅ **Legitimate (Ham) Message**")
-
-except FileNotFoundError:
-    st.error("Model files not found. Please train models using `python src/train.py` first.")
+    if prediction[0] == 1:
+      st.error("Spam Email")
+    else:
+      st.success("Legitimate Email")
+  else:
+    st.warning("Please enter some text before predicting.")

@@ -68,8 +68,8 @@ The project uses the SMS Spam Collection Dataset.
 
 The dataset contains two classes:
 
-ham — legitimate messages
-spam — unwanted messages
+*ham — legitimate messages
+*spam — unwanted messages
 
 The dataset is not included in this repository. See data/README.md for information about obtaining and preparing the dataset.
 

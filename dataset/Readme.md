@@ -1,8 +1,13 @@
-The project uses the SMS Spam Collection Dataset, containing labeled SMS messages classified as:
+# Dataset
 
-ham — legitimate message
-spam — unwanted message
+This project uses the SMS Spam Collection Dataset.
 
-The dataset is used as a benchmark for binary text classification.
+The dataset is not included in this repository.
 
-The dataset itself is not included in this repository. Please download it from the original source and place it in the appropriate data/ directory.
+Download the dataset from its original source and place the required file in this directory.
+
+Expected structure:
+
+```text
+data/
+└── spam.csv
